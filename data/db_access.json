@@ -1,4 +1,6 @@
 {
-    "manager": ["auth_bp", "query_bp", "report_bp"],
-    "admin": ["auth_bp", "report_menu", "report_view"]
+    "Manager": ["auth_bp", "query_bp", "report_bp"],
+    "Worker1": ["auth_bp","query_bp"],
+    "Worker2": ["auth_bp", "query_bp"]
 }
+
