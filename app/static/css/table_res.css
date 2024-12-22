@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #0066cc;
+    text-align: center;
+    margin: 30px auto 20px auto;
+    letter-spacing: 1px;
+    font-weight: bold;
+    border-bottom: 2px solid #0066cc;
+    padding-bottom: 10px;
+}
+
+.table-container {
+    width: 90%;
+    margin: 50px auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.styled-table thead tr {
+    background-color: #0066cc;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #0066cc;
+}
+
+.styled-table td, .styled-table th {
+    padding: 12px 15px;
+}
+
+@media (max-width: 768px) {
+    .styled-table thead {
+        display: none;
+    }
+
+    .styled-table, .styled-table tbody, .styled-table tr, .styled-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .styled-table tr {
+        margin-bottom: 15px;
+    }
+
+    .styled-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .styled-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+
+
+}
+.menu-link {
+    display: inline-block;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #0066cc;
+    padding: 15px 20px;
+    border: 2px solid #0066cc;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 10px 0;
+}
+
+.menu-link:hover {
+    background-color: #0066cc;
+    color: white;
+}
+
+.exit-link {
+    color: #cc0000;
+    border-color: #cc0000;
+}
+
+.exit-link:hover {
+    background-color: #cc0000;
+    color: white;
+}

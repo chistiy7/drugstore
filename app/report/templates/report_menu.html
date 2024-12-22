@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Menu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <span class="navbar-message">{{ message }}</span>
+        </div>
+    </nav>
+    <div class="login-container">
+
+    <h2>Выберите отчет</h2>
+
+            <div class="form-group">
+    <form action="report" method="POST">
+<center>
+        <label for="rep">Отчет:</label>
+        <select id="rep" name="rep">
+            <option value="0">Отчет о сотрудниках</option>
+            <option value="1">Отчет о продажах</option>
+        </select>
+
+        <label for="year">Год:</label>
+        <select id="year" name="year">
+            {% for year in range(2000, 2025) %}
+                <option value="{{ year }}">{{ year }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="month">Месяц:</label>
+        <select id="month" name="month">
+            {% for month in range(1, 13) %}
+                <option value="{{ month }}">{{ month }}</option>
+            {% endfor %}
+        </select>
+        <label></label>
+        <button type="submit" name="action" value="report_view" class="btn">Смотреть</button>
+        <button type="submit" name="action" value="report_create" class="btn">Создать</button>
+    </center>
+    </form>
+            </div>
+
+        <p>
+            <a class="menu-link exit-link" href="{{url_for('main_session')}}">Выход в меню</a>
+        </p>
+    </div>
+</body>
+</html>

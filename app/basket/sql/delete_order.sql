@@ -1,0 +1,1 @@
+DELETE FROM `user_order` WHERE `idOrder` = $delid;

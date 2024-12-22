@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/table_res.css') }}">
+    <h2>{{ prod_title }}</h2>
+</head>
+<body>
+    <div class="table-container">
+        <table class="styled-table">
+            <thead>
+                <tr class="tab_title">
+                    <th>Название</th>
+                    <th>Единица измерения</th>
+                    <th>Цена</th>
+                    <th>Категория</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product['prod_name'] }}</td>
+                    <td>{{ product['prod_measure'] }}</td>
+                    <td>{{ product['prod_price'] }}</td>
+                    <td>{{ product['prod_category'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <center>
+        <p>
+            <a class="menu-link exit-link" href="{{url_for('main_session')}}">Выход в меню</a>
+        </p>
+    </center>
+</body>
+</html>
