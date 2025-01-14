@@ -8,19 +8,20 @@
 </head>
 <body>
     <div class="login-container">
-        <h2>Выбор цены</h2>
-        <form method="POST" action="{{url_for('query_bp.query_cost')}}">
+        <h2>Выбор препарата</h2>
+        <form method="POST" action="{{url_for('query_bp.query_medicine')}}">
             <div class="form-group">
-                <label for="cost">Цены:</label>
-                <input type="text" id="cost" name="cost" required>
+                <label for="medicine">Категория:</label>
+                <input type="text" id="medicine" name="medicine" required>
             </div>
             <input type="submit" value="Применить" class="btn-submit">
         </form>
         <center>
         <p>
-            <a class="menu-link exit-link" href="{{url_for('main_session')}}">Выход в меню</a>
+            <a class="menu-link exit-link" href="{{url_for('query_bp.query_menu')}}">Выход в меню</a>
         </p>
     </center>
     </div>
 </body>
 </html>
+

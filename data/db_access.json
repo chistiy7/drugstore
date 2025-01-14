@@ -1,6 +1,7 @@
 {
     "Manager": ["auth_bp", "query_bp", "report_bp"],
     "Worker1": ["auth_bp","query_bp"],
-    "Worker2": ["auth_bp", "query_bp"]
+    "Worker2": ["auth_bp", "query_bp"],
+    "Client": ["auth_bp","reg_bp","basket_bp"]
 }
 

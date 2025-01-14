@@ -23,14 +23,16 @@ def model_route_transaction_order(db_config : dict, sql_provider, basket : dict,
         return ProductInfoRespronse(tuple(), error_message="Заказ не был создан", status=False)
 
     _sql = sql_provider.get('get_order.sql', e_user_id=user_id, e_order_date=ddate)
+    print("~model_route | SQL FOR GETTING ORDER:",_sql)
     order_id = select_list(db_config,_sql)[0][0]
-    print(basket)
+    # order_date = select_list(db_config, _sql)[0][2]
+    print("~model_route | АЙДИ ЗАКАЗА:",order_id)
     for key, value in basket.items():
         _sql = sql_provider.get('insert_order_product.sql',
                                 e_order_id = order_id[0],
-                                e_prod_id = int(key),
+                                e_prod_id = str(key),
                                 e_amount = int(value))
-        print(_sql)
+        print("~model_route | В ЦИКЛЕ: ",_sql)
         result = insert_one(db_config, _sql)
         if not result:
             _sql = sql_provider.get('delete_order.sql', delid = order_id)

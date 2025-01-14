@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 </head>
 <body>
+    <div class="header">
+        Аптека
+    </div>
     <div class="login-container">
         <h2>Авторизация</h2>
         <form method="POST" action="{{ url_for('auth_bp.auth_index') }}">
@@ -23,8 +26,10 @@
             <br>
             <p>{{error}}</p>
         </form>
+        <p>Еще нет аккаунта? <a href="{{ url_for('reg_bp.register') }}">Зарегистрироваться</a></p>
         <center>
     </center>
     </div>
 </body>
 </html>
+

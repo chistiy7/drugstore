@@ -32,3 +32,11 @@ def group_required(func):
         else:
             return redirect(url_for('main_session'))
     return wrapper
+
+def not_logged_in_required(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        if 'user_group' in session:  # Если пользователь уже авторизован
+            return redirect(url_for('main_session'))  # Перенаправляем его в систему
+        return func(*args, **kwargs)  # Иначе показываем страницу регистрации
+    return wrapper

@@ -9,6 +9,7 @@ class ProductInfoResponse:
 
 def model_route(db_config, user_input_data, sql_provider):
     error_message = ''
+    print("xktybr")
     if 'prod_category' not in user_input_data:
         print('user_input_data', user_input_data)
         error_message = 'category not found'

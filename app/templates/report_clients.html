@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчет о новых пользователях и заказах</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/table_res.css') }}">
+</head>
+<body>
+    <h2>Отчет о новых пользователях и заказах</h2>
+    <div class="table-container">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Месяц</th>
+                    <th>Год</th>
+                    <th>Новые пользователи</th>
+                    <th>Общее количество заказов</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in res %}
+                <tr>
+                    <td data-label="Месяц">{{ row.report_month }}</td>
+                    <td data-label="Год">{{ row.report_year }}</td>
+                    <td data-label="Новые пользователи">{{ row.new_users }}</td>
+                    <td data-label="Общее количество заказов">{{ row.total_orders }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="{{ url_for('report_bp.report_menu') }}" class="menu-link">Назад в меню отчетов</a>
+    </div>
+</body>
+</html>

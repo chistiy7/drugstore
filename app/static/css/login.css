@@ -115,3 +115,12 @@ input[type="text"], input[type="password"] {
     background-color: #cc0000;
     color: white;
 }
+
+.header {
+    background-color: #0066cc;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 24px;
+    font-weight: bold;
+}

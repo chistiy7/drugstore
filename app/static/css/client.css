@@ -1,0 +1,107 @@
+/* Общий стиль */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Светлый фон */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    margin: 20px auto;
+    max-width: 900px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #0066cc;
+    border-bottom: 2px solid #0066cc;
+    padding-bottom: 10px;
+}
+
+.goods {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.goods .item {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0066cc;
+}
+
+.goods .price {
+    font-size: 16px;
+    color: #555;
+}
+
+.plusminus {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0 2px;
+}
+
+.plusminus:hover {
+    background-color: #005bb5;
+}
+
+input[type="submit"] {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #005bb5;
+}
+
+.minimenubox {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.minimenubox .other {
+    display: inline-block;
+    background-color: #0066cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.minimenubox .other:hover {
+    background-color: #005bb5;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    margin-top: 20px;
+}

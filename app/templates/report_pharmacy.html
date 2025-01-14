@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчёт о продажах</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/table_res.css') }}">
+</head>
+<body>
+    <h2>Отчёт о продажах за период </h2>
+    <div class="table-container">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Дата отчета</th>
+                    <th>Название лекарства</th>
+                    <th>Количество продано</th>
+                    <th>Цена за единицу</th>
+                    <th>Общая выручка</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in res %}
+                <tr>
+                    <td data-label="Дата отчета">{{ row.report_date }}</td>
+                    <td data-label="Название лекарства">{{ row.medicine_name }}</td>
+                    <td data-label="Количество продано">{{ row.total_amount_sold }}</td>
+                    <td data-label="Цена за единицу">{{ row.price_per_unit }}</td>
+                    <td data-label="Общая выручка">{{ row.total_revenue }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+     <div style="text-align: center; margin-top: 20px;">
+        <a href="{{ url_for('report_bp.report_menu') }}" class="menu-link">Назад в меню отчетов</a>
+    </div>
+</body>
+</html>

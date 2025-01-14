@@ -6,12 +6,15 @@ from database.DBcm import DBContextManager
 def select_list(db_config: dict, _sql: str):
     with DBContextManager(db_config) as cursor:
         try:
+            print("ЗАПРОС ПОСЛЕ ПЕРЕДАЧИ В SELECT_LIST:",_sql)
             cursor.execute(_sql)
             result = cursor.fetchall()
+            print("результат выполненния get:",result)
             schema = [item[0] for item in cursor.description]
         except:
             result = ()
             schema = []
+    print("результат селект лист",result,schema)
     return result, schema
 
 
@@ -20,6 +23,7 @@ def select_dict(db_config: dict, _sql: str):
     result_dict = []
     for item in result:
         result_dict.append(dict(zip(schema, item)))
+    print("~select.py/select_dict",result_dict)
     return result_dict
 
 

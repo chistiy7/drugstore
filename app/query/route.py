@@ -1,10 +1,11 @@
 from flask import render_template, Blueprint, current_app, request
 from database.select import select_dict
 from app.access import group_required
-from  database.sql_provider import SQLProvider
+from database.sql_provider import SQLProvider
 import os
 
 blueprint_query = Blueprint('query_bp', __name__, template_folder='templates')
+
 
 provider = SQLProvider(os.path.join(os.path.dirname(__file__), 'sql'))
 
@@ -15,38 +16,56 @@ def query_menu():
     return render_template('query_menu.html')
 
 
-@blueprint_query.route('/category', methods=['GET', 'POST'])
+@blueprint_query.route('/medicine', methods=['GET', 'POST'])
 @group_required
-def query_category():
+def query_medicine():
     if request.method == 'POST':
-        category = request.form['category']
-        _sql = provider.get('client.sql', e_category=category)
+        medicine = request.form['medicine']
+        print(medicine)
+        _sql = provider.get('medicine.sql', input_medicine=medicine)
         result = select_dict(current_app.config['db_config'], _sql)
         if result:
-            prod_title = f'Все записи по категории {category}'
+            prod_title = f'Все записи по препарату с названием {medicine}'
             print(result)
             return render_template('dynamic.html', prod_title=prod_title, products=result)
         else:
             return 'Результат не получен'
     else:
-        return render_template('query_category.html')
+        return render_template('query_medicine.html')
 
 
-@blueprint_query.route('/cost', methods=['GET', 'POST'])
+@blueprint_query.route('/group', methods=['GET', 'POST'])
 @group_required
-def query_cost():
-    print(1)
+def query_group():
     if request.method == 'POST':
-        cost = request.form['cost']
-        print(cost)
-        _sql = provider.get('client.sql', e_cost=cost)
+        group = request.form['group']
+        print(group)
+        _sql = provider.get('medicine_group.sql', input_group=group)
         result = select_dict(current_app.config['db_config'], _sql)
         print(result)
         if result:
-            prod_title = f'Все записи по цене {cost} и меньше'
+            prod_title = f'Все записи по препарату группы {group}'
             print(result)
             return render_template('dynamic.html', prod_title=prod_title, products=result)
         else:
             return 'Результат не получен'
     else:
-        return render_template('query_cost.html')
+        return render_template('query_group.html')
+
+# @blueprint_query.route('/orders', methods=['GET', 'POST'])
+# @group_required
+# def query_group():
+#     if request.method == 'POST':
+#         order = request.form['order']
+#         print(order)
+#         _sql = provider.get('medicine_group.sql', input_order=order)
+#         result = select_dict(current_app.config['db_config'], _sql)
+#         print(result)
+#         if result:
+#             prod_title = f'Все  по препарату группы {group}'
+#             print(result)
+#             return render_template('dynamic.html', prod_title=prod_title, products=result)
+#         else:
+#             return 'Результат не получен'
+#     else:
+#         return render_template('query_group.html')

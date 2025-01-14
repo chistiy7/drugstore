@@ -16,13 +16,13 @@
 <center>
         <label for="rep">Отчет:</label>
         <select id="rep" name="rep">
-            <option value="1">Отчет о сотрудниках</option>
-            <option value="2">Отчет о продажах</option>
+            <option value="1">Отчет о продажах</option>
+            <option value="2">Отчет о клиентах</option>
         </select>
 
         <label for="year">Год:</label>
         <select id="year" name="year">
-            {% for year in range(2000, 2025) %}
+            {% for year in range(2000, 2026) %}
                 <option value="{{ year }}">{{ year }}</option>
             {% endfor %}
         </select>

@@ -8,6 +8,7 @@ def insert_one(db_config: dict, _sql: str):
             raise ValueError("Cursor not created")
         else:
             try:
+                print("~insert.py  | INSERT ONE: ", _sql)
                 cursor.execute(_sql)
             except OperationalError as error:
                 print("error: ", error)

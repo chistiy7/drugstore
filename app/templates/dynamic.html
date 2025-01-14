@@ -11,19 +11,23 @@
         <table class="styled-table">
             <thead>
                 <tr class="tab_title">
+                    <th>Идентификационный номер</th>
                     <th>Название</th>
-                    <th>Единица измерения</th>
-                    <th>Цена</th>
-                    <th>Категория</th>
+                    <th>Производитель</th>
+                    <th>Страна производства</th>
+                    <th>Колличество на складе</th>
+                    <th>Последняя дата обновления</th>
                 </tr>
             </thead>
             <tbody>
                 {% for product in products %}
                 <tr>
-                    <td>{{ product['prod_name'] }}</td>
-                    <td>{{ product['prod_measure'] }}</td>
-                    <td>{{ product['prod_price'] }}</td>
-                    <td>{{ product['prod_category'] }}</td>
+                    <td>{{ product['medicine_id'] }}</td>
+                    <td>{{ product['medicine_name'] }}</td>
+                    <td>{{ product['manufactury_company'] }}</td>
+                    <td>{{ product['manufactory_country'] }}</td>
+                    <td>{{ product['quantity'] }}</td>
+                    <td>{{ product['last_date'] }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

@@ -1,0 +1,107 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Регистрация</title>-->
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="header">-->
+<!--        Аптека-->
+<!--    </div>-->
+<!--    <div class="login-container">-->
+<!--        <h2>Регистрация</h2>-->
+
+<!--        &lt;!&ndash; Вывод сообщений об ошибке через flash() &ndash;&gt;-->
+<!--        {% with messages = get_flashed_messages() %}-->
+<!--            {% if messages %}-->
+<!--                <ul>-->
+<!--                    {% for message in messages %}-->
+<!--                        <li style="color: red;">{{ message }}</li>-->
+<!--                    {% endfor %}-->
+<!--                </ul>-->
+<!--            {% endif %}-->
+<!--        {% endwith %}-->
+
+<!--        <form method="POST" action="{{ url_for('reg_bp.register') }}">-->
+<!--            <div class="form-group">-->
+<!--                <label for="username">Имя пользователя:</label>-->
+<!--                <input type="text" id="username" name="username" required>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="password">Пароль:</label>-->
+<!--                <input type="password" id="password" name="password" required>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="confirm_password">Подтвердите пароль:</label>-->
+<!--                <input type="password" id="confirm_password" name="confirm_password" required>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="role">Роль:</label>-->
+<!--                <select id="role" name="role">-->
+<!--                    <option value="Client">Клиент</option>-->
+<!--                    <option value="Admin">Администратор</option>-->
+<!--                </select>-->
+<!--            </div>-->
+<!--            <input type="submit" value="Зарегистрироваться" class="btn-submit">-->
+<!--        </form>-->
+<!--        <br>-->
+<!--        <p>Уже есть аккаунт? <a href="{{ url_for('auth_bp.auth_index') }}">Войти</a></p>-->
+<!--    </div>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <div class="header">
+        Аптека
+    </div>
+    <div class="login-container">
+        <h2>Регистрация</h2>
+
+        <!-- Вывод сообщений об ошибке через flash() -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li style="color: {% if category == 'error' %} red {% else %} green {% endif %};">
+                            {{ message }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('reg_bp.register') }}">
+            <div class="form-group">
+                <label for="username">Имя пользователя:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="phone_num">Номер телефона:</label>
+                <input type="text" id="phone_num" name="phone_num" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Подтвердите пароль:</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+            <input type="submit" value="Зарегистрироваться" class="btn-submit">
+        </form>
+        <br>
+        <p>Уже есть аккаунт? <a href="{{ url_for('auth_bp.auth_index') }}">Войти</a></p>
+    </div>
+</body>
+</html>
+
